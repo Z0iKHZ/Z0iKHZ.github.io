@@ -94,16 +94,17 @@
 
 
 
-<meta name="description" content="Live With Your Faith">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zenhertz">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。   输入描述:  每组测试用例仅包含一组数据，每组数据第一行为原字符串，长度不超过 10 ，仅包含大">
+<meta property="og:type" content="article">
+<meta property="og:title" content="palindrome数组回文数编程">
+<meta property="og:url" content="http://yoursite.com/2017/09/12/palindrome/index.html">
 <meta property="og:site_name" content="Zenhertz">
-<meta property="og:description" content="Live With Your Faith">
+<meta property="og:description" content="题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。   输入描述:  每组测试用例仅包含一组数据，每组数据第一行为原字符串，长度不超过 10 ，仅包含大">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-12T10:25:26.101Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zenhertz">
-<meta name="twitter:description" content="Live With Your Faith">
+<meta name="twitter:title" content="palindrome数组回文数编程">
+<meta name="twitter:description" content="题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。   输入描述:  每组测试用例仅包含一组数据，每组数据第一行为原字符串，长度不超过 10 ，仅包含大">
 
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/12/palindrome/"/>
 
 
 
 
 
-  <title>Zenhertz</title>
+  <title>palindrome数组回文数编程 | Zenhertz</title>
   
 
 
@@ -173,9 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,9 +257,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -290,9 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/12/palindrome/" itemprop="url">palindrome数组回文数编程</a></h1>
+          <h1 class="post-title" itemprop="name headline">palindrome数组回文数编程</h1>
         
 
         <div class="post-meta">
@@ -342,20 +339,39 @@
       
 
       
-        
-          
-          题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><pre><code>现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。
 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。
 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/12/palindrome/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+
+输入描述:
+
+每组测试用例仅包含一组数据，每组数据第一行为原字符串，长度不超过 10 ，仅包含大小写字符与数字。
+接下来会有一个数字 n 表示有 n 个操作，再接下来有 n 行，每行两个整数，表示每次操作的(p , l)。
+
+
+保证输入的操作一定合法，最后得到的字符串长度不超过 1000。
+
+
+输出描述:
+
+输出一个字符串代表最后得到的字符串。
+</code></pre><hr>
+<h2 id=""><a href="#" class="headerlink" title="*"></a><em>*</em></h2><pre><code>示例1
+输入
+
+ab
+2
+0 2
+1 3
+输出
+
+abbaabb
+</code></pre><h3 id="思路及遇到的坑"><a href="#思路及遇到的坑" class="headerlink" title="思路及遇到的坑"></a>思路及遇到的坑</h3><p>作为一个前端开发，首先想到的还是javascript中的reverse操作，十分方便，后来想到，还要在字符串结尾再加上没有进行回文操作的部分，自然要对原字符串进行截取，考虑slice函数</p>
+<p>这里有个坑</p>
+<font color="blue">slice(start,end);</font>
+
+<p>这个end，实际上对应的是数组下标，不是截取长度<br>代码实现如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> arr=[];</div><div class="line"><span class="keyword">var</span> str=readline();</div><div class="line"><span class="keyword">var</span> count=readline();</div><div class="line"><span class="keyword">var</span> line;</div><div class="line"><span class="keyword">while</span>(line=readline())&#123;</div><div class="line">    arr=line.split(<span class="string">" "</span>);</div><div class="line">    <span class="keyword">var</span> start=<span class="built_in">parseInt</span>(arr[<span class="number">0</span>]);</div><div class="line">    <span class="keyword">var</span> end=start+<span class="built_in">parseInt</span>(arr[<span class="number">1</span>]);</div><div class="line">    <span class="keyword">var</span> substr=str.slice(start,end);</div><div class="line">    <span class="keyword">var</span> strstart=str.slice(<span class="number">0</span>,end);</div><div class="line">    <span class="keyword">var</span> strend=str.slice(end);</div><div class="line">    <span class="keyword">var</span> strfinish=<span class="string">""</span>;</div><div class="line">    <span class="keyword">var</span> brr=[];</div><div class="line">    <span class="keyword">var</span> crr=[];</div><div class="line">    brr=substr.split(<span class="string">""</span>);</div><div class="line">    crr=brr.reverse();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;crr.length;i++)&#123;</div><div class="line">        strstart+=crr[i];</div><div class="line">    &#125;</div><div class="line">    str=strstart+strend;   </div><div class="line">&#125;</div><div class="line"></div><div class="line">print(str);</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -372,168 +388,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/my-new-post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zenhertz">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zenhertz">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/my-new-post/" itemprop="url">爱奇艺2018前端笔试编程题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T22:31:12+08:00">
-                2017-09-11
-              </time>
+              <a href="/2017/09/11/my-new-post/" rel="next" title="爱奇艺2018前端笔试编程题">
+                <i class="fa fa-chevron-left"></i> 爱奇艺2018前端笔试编程题
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          爱奇艺2018校招前端开发三道编程题。
-第一题给三个长度不同的棍子，边长可以减，求能组成周长最大的三角形是多长。
-第一题代码没有保留，凭记忆写了
-解法如下：考虑三角形特性，任意两边之和大于第三边，
-样例输入
-1 2 3样例输出5
-
-
-思路如下：找出最大边max，最小边min，中间边mid，只要min
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/11/my-new-post/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -543,10 +419,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -554,6 +431,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -574,8 +455,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -628,6 +518,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text">*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路及遇到的坑"><span class="nav-number">1.</span> <span class="nav-text">思路及遇到的坑</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -748,10 +654,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 

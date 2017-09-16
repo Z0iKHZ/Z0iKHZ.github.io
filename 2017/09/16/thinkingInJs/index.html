@@ -94,19 +94,17 @@
 
 
 
-<meta name="description" content="起因今天刷题，看到一个">
+<meta name="description" content="起因今天刷题，遇到一道很坑的问题： 下面代码执行后，foo.x的值是？ 123var foo = &amp;#123;n:1&amp;#125;;var bar = foo;foo.x = foo = &amp;#123;n:2&amp;#125;; 这道题说实话我一开始也是懵的，没看懂，这里还要吐槽为什么出题人总能想到这么奇葩的问题。 查了下资料，其实连续赋值问题很多人都讨论过（果然还是自己太嫩） 这里再贴一个网上讨论比较多的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript连续赋值的思考">
 <meta property="og:url" content="http://yoursite.com/2017/09/16/thinkingInJs/index.html">
 <meta property="og:site_name" content="Zenhertz">
-<meta property="og:description" content="起因今天刷题，看到一个">
+<meta property="og:description" content="起因今天刷题，遇到一道很坑的问题： 下面代码执行后，foo.x的值是？ 123var foo = &amp;#123;n:1&amp;#125;;var bar = foo;foo.x = foo = &amp;#123;n:2&amp;#125;; 这道题说实话我一开始也是懵的，没看懂，这里还要吐槽为什么出题人总能想到这么奇葩的问题。 查了下资料，其实连续赋值问题很多人都讨论过（果然还是自己太嫩） 这里再贴一个网上讨论比较多的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/09/16/thinkingInJs/images/1.png">
-<meta property="og:updated_time" content="2017-09-16T15:59:35.267Z">
+<meta property="og:updated_time" content="2017-09-16T16:24:16.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript连续赋值的思考">
-<meta name="twitter:description" content="起因今天刷题，看到一个">
-<meta name="twitter:image" content="http://yoursite.com/2017/09/16/thinkingInJs/images/1.png">
+<meta name="twitter:description" content="起因今天刷题，遇到一道很坑的问题： 下面代码执行后，foo.x的值是？ 123var foo = &amp;#123;n:1&amp;#125;;var bar = foo;foo.x = foo = &amp;#123;n:2&amp;#125;; 这道题说实话我一开始也是懵的，没看懂，这里还要吐槽为什么出题人总能想到这么奇葩的问题。 查了下资料，其实连续赋值问题很多人都讨论过（果然还是自己太嫩） 这里再贴一个网上讨论比较多的">
 
 
 
@@ -363,8 +361,30 @@
       
 
       
-        <h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>今天刷题，看到一个</p>
-<p><img src="images/1.png" alt=""></p>
+        <h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>今天刷题，遇到一道很坑的问题：</p>
+<pre><code>下面代码执行后，foo.x的值是？
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">var</span> bar = foo;</div><div class="line">foo.x = foo = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;;</div></pre></td></tr></table></figure>
+<p>这道题说实话我一开始也是懵的，没看懂，<br>这里还要吐槽为什么出题人总能想到这么奇葩的问题。</p>
+<p>查了下资料，其实连续赋值问题很多人都讨论过（果然还是自己太嫩）</p>
+<p>这里再贴一个网上讨论比较多的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;;  </div><div class="line">a.x = a = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;;  </div><div class="line">alert(a.x); <span class="comment">// --&gt; undefined</span></div></pre></td></tr></table></figure>
+<p>为什么a.x未定义？</p>
+<p>我看了几篇博客后，觉得又一篇博客解释的很好<br><a href="http://justjavac.com/javascript/2012/04/05/javascript-continuous-assignment-operator.html" target="_blank" rel="external">http://justjavac.com/javascript/2012/04/05/javascript-continuous-assignment-operator.html</a></p>
+<p>里面是这样解释的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.x = a = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;;</div></pre></td></tr></table></figure>
+<p>a.x 中的a指向的是 {n:1}，a 指向的是 {n:2}。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">        a.x  =  a  = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;</div><div class="line">        │      │</div><div class="line">&#123;<span class="attr">n</span>:<span class="number">1</span>&#125;&lt;──┘      └─&gt;&#123;<span class="attr">n</span>:<span class="number">2</span>&#125;</div></pre></td></tr></table></figure>
+<p>其实看到这里已经算是解释清楚了，<br>但是有的同学就要问了，那有一个a确实有了x属性了啊！<br>所以我觉得还是要来最后一下，否则有一些像我一样迟钝的人还是没反应过来：</p>
+<p>回到代码，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;;  </div><div class="line">a.x = a = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;;  </div><div class="line">alert(a.x); <span class="comment">// --&gt; undefined</span></div></pre></td></tr></table></figure>
+<p>第二行中，第一个a.x指向原来的a，第二个a被赋值为{n:2}</p>
+<p>最后的情况如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">旧的 a == &#123;<span class="attr">n</span>:<span class="number">1</span>,<span class="attr">x</span>:&#123;<span class="attr">n</span>:<span class="number">2</span>&#125;&#125;;</div><div class="line">新的 a == &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;;</div></pre></td></tr></table></figure>
+<p>那么在第三行中，alert的a是哪个a？<br>答案应该是，第二个a，是新的a，新的a没有 x  属性，<br>所以alert的时候报了undefined。</p>
+<p>回到开头，<br>下面代码执行后，foo.x的值是？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">var</span> bar = foo;</div><div class="line">foo.x = foo = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;;</div></pre></td></tr></table></figure>
+<p>答案应该是 undefined<br>这里，第一个foo.x还是原来的foo<br>第二个foo，是新的foo，这个新的foo没有x 属性</p>
+<p>所以执行后，foo.x找到的是新的foo，不会找原来的foo，而是找的新的foo，新的foo没有x属性，所以是undefined</p>
 
       
     </div>

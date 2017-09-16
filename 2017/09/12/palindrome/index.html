@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。   输入描述:  每组测试用例仅包含一组数据，每组数据第一行为原字符串，长度不超过 10 ，仅包含大">
+<meta name="description" content="题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l)  表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。 字符串的下标是从 0 开始的，你可以从样例中得到更多信息。   输入描述:  每组测试用例仅包含一组数据，每组数据第一行为原字符串， 长度不超过 10 ，仅">
 <meta property="og:type" content="article">
 <meta property="og:title" content="palindrome数组回文数编程">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/palindrome/index.html">
 <meta property="og:site_name" content="Zenhertz">
-<meta property="og:description" content="题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。   输入描述:  每组测试用例仅包含一组数据，每组数据第一行为原字符串，长度不超过 10 ，仅包含大">
+<meta property="og:description" content="题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l)  表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。 字符串的下标是从 0 开始的，你可以从样例中得到更多信息。   输入描述:  每组测试用例仅包含一组数据，每组数据第一行为原字符串， 长度不超过 10 ，仅">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-12T12:54:22.974Z">
+<meta property="og:updated_time" content="2017-09-16T15:54:13.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="palindrome数组回文数编程">
-<meta name="twitter:description" content="题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。   输入描述:  每组测试用例仅包含一组数据，每组数据第一行为原字符串，长度不超过 10 ，仅包含大">
+<meta name="twitter:description" content="题目现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l)  表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。 你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。 字符串的下标是从 0 开始的，你可以从样例中得到更多信息。   输入描述:  每组测试用例仅包含一组数据，每组数据第一行为原字符串， 长度不超过 10 ，仅">
 
 
 
@@ -361,14 +361,18 @@
       
 
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><pre><code>现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。
-你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><pre><code>现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 
+表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。
+你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。
+字符串的下标是从 0 开始的，你可以从样例中得到更多信息。
 
 
 输入描述:
 
-每组测试用例仅包含一组数据，每组数据第一行为原字符串，长度不超过 10 ，仅包含大小写字符与数字。
-接下来会有一个数字 n 表示有 n 个操作，再接下来有 n 行，每行两个整数，表示每次操作的(p , l)。
+每组测试用例仅包含一组数据，每组数据第一行为原字符串，
+长度不超过 10 ，仅包含大小写字符与数字。
+接下来会有一个数字 n 表示有 n 个操作，再接下来有 n 行，
+每行两个整数，表示每次操作的(p , l)。
 
 
 保证输入的操作一定合法，最后得到的字符串长度不超过 1000。
@@ -378,7 +382,7 @@
 
 输出一个字符串代表最后得到的字符串。
 </code></pre><hr>
-<h2 id=""><a href="#" class="headerlink" title="*"></a><em>*</em></h2><pre><code>示例1
+<pre><code>示例1
 输入
 
 ab
@@ -426,6 +430,10 @@ abbaabb
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/16/thinkingInJs/" rel="prev" title="JavaScript连续赋值的思考">
+                JavaScript连续赋值的思考 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -502,7 +510,7 @@ abbaabb
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -550,7 +558,7 @@ abbaabb
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text">*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路及遇到的坑"><span class="nav-number">1.</span> <span class="nav-text">思路及遇到的坑</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路及遇到的坑"><span class="nav-number">2.</span> <span class="nav-text">思路及遇到的坑</span></a></li></ol></div>
             
 
           </div>

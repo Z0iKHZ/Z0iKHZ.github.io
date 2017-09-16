@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Zenhertz">
 <meta property="og:description" content="起因今天刷题，遇到一道很坑的问题： 下面代码执行后，foo.x的值是？ 123var foo = &amp;#123;n:1&amp;#125;;var bar = foo;foo.x = foo = &amp;#123;n:2&amp;#125;; 这道题说实话我一开始也是懵的，没看懂，这里还要吐槽为什么出题人总能想到这么奇葩的问题。 查了下资料，其实连续赋值问题很多人都讨论过（果然还是自己太嫩） 这里再贴一个网上讨论比较多的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-16T16:36:18.836Z">
+<meta property="og:updated_time" content="2017-09-16T16:38:50.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript连续赋值的思考">
 <meta name="twitter:description" content="起因今天刷题，遇到一道很坑的问题： 下面代码执行后，foo.x的值是？ 123var foo = &amp;#123;n:1&amp;#125;;var bar = foo;foo.x = foo = &amp;#123;n:2&amp;#125;; 这道题说实话我一开始也是懵的，没看懂，这里还要吐槽为什么出题人总能想到这么奇葩的问题。 查了下资料，其实连续赋值问题很多人都讨论过（果然还是自己太嫩） 这里再贴一个网上讨论比较多的">
@@ -384,7 +384,7 @@
 <p>回到开头，<br>下面代码执行后，foo.x的值是？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">var</span> bar = foo;</div><div class="line">foo.x = foo = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;;</div></pre></td></tr></table></figure>
 <p>答案应该是 undefined<br>这里，第一个foo.x还是原来的foo<br>第二个foo，是新的foo，这个新的foo没有x 属性</p>
-<p>所以执行后，foo.x找到的是新的foo，不会找原来的foo，而是找的新的foo，新的foo没有x属性，所以是undefined</p>
+<p>所以执行后，foo.x找到的是新的foo，不会找原来的foo，而是找的新的foo，新的foo没有x属性，所以是undefined。</p>
 
       
     </div>

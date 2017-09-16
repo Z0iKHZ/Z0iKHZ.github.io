@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Zenhertz">
 <meta property="og:description" content="起因今天刷题，遇到一道很坑的问题： 下面代码执行后，foo.x的值是？ 123var foo = &amp;#123;n:1&amp;#125;;var bar = foo;foo.x = foo = &amp;#123;n:2&amp;#125;; 这道题说实话我一开始也是懵的，没看懂，这里还要吐槽为什么出题人总能想到这么奇葩的问题。 查了下资料，其实连续赋值问题很多人都讨论过（果然还是自己太嫩） 这里再贴一个网上讨论比较多的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-16T16:24:16.573Z">
+<meta property="og:updated_time" content="2017-09-16T16:36:18.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript连续赋值的思考">
 <meta name="twitter:description" content="起因今天刷题，遇到一道很坑的问题： 下面代码执行后，foo.x的值是？ 123var foo = &amp;#123;n:1&amp;#125;;var bar = foo;foo.x = foo = &amp;#123;n:2&amp;#125;; 这道题说实话我一开始也是懵的，没看懂，这里还要吐槽为什么出题人总能想到这么奇葩的问题。 查了下资料，其实连续赋值问题很多人都讨论过（果然还是自己太嫩） 这里再贴一个网上讨论比较多的">
@@ -369,7 +369,7 @@
 <p>这里再贴一个网上讨论比较多的代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;;  </div><div class="line">a.x = a = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;;  </div><div class="line">alert(a.x); <span class="comment">// --&gt; undefined</span></div></pre></td></tr></table></figure>
 <p>为什么a.x未定义？</p>
-<p>我看了几篇博客后，觉得又一篇博客解释的很好<br><a href="http://justjavac.com/javascript/2012/04/05/javascript-continuous-assignment-operator.html" target="_blank" rel="external">http://justjavac.com/javascript/2012/04/05/javascript-continuous-assignment-operator.html</a></p>
+<p>我看了几篇博客后，觉得有一篇博客解释的很好<br><a href="http://justjavac.com/javascript/2012/04/05/javascript-continuous-assignment-operator.html" target="_blank" rel="external">http://justjavac.com/javascript/2012/04/05/javascript-continuous-assignment-operator.html</a></p>
 <p>里面是这样解释的：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.x = a = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;;</div></pre></td></tr></table></figure>
 <p>a.x 中的a指向的是 {n:1}，a 指向的是 {n:2}。</p>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="引言搜狐畅游前端笔试，很好玩的笔试题，有50分的题目在问我游戏基础知识，包括但不限于，MMORPG、SRPG、增益效果的英文、刀塔传奇某张牌的效果、天龙八部几个门派，传奇几个职业… 除去这50分，其余的是真真正正的前端笔试题。 说是前端笔试题，又考的很浅，基本不涉及JavaScript的原型、作用域、闭包（反正现在回忆起来是没有） 考的是什么呢？ CSS样式、jQuery基础、类型判等、jQuer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜狐畅游前端笔试总结">
+<meta property="og:url" content="http://yoursite.com/2017/09/17/CYOU-EXAM/index.html">
+<meta property="og:site_name" content="Zenhertz">
+<meta property="og:description" content="引言搜狐畅游前端笔试，很好玩的笔试题，有50分的题目在问我游戏基础知识，包括但不限于，MMORPG、SRPG、增益效果的英文、刀塔传奇某张牌的效果、天龙八部几个门派，传奇几个职业… 除去这50分，其余的是真真正正的前端笔试题。 说是前端笔试题，又考的很浅，基本不涉及JavaScript的原型、作用域、闭包（反正现在回忆起来是没有） 考的是什么呢？ CSS样式、jQuery基础、类型判等、jQuer">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-17T07:25:13.900Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搜狐畅游前端笔试总结">
+<meta name="twitter:description" content="引言搜狐畅游前端笔试，很好玩的笔试题，有50分的题目在问我游戏基础知识，包括但不限于，MMORPG、SRPG、增益效果的英文、刀塔传奇某张牌的效果、天龙八部几个门派，传奇几个职业… 除去这50分，其余的是真真正正的前端笔试题。 说是前端笔试题，又考的很浅，基本不涉及JavaScript的原型、作用域、闭包（反正现在回忆起来是没有） 考的是什么呢？ CSS样式、jQuery基础、类型判等、jQuer">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/17/CYOU-EXAM/"/>
+
+
+
+
+
+  <title>搜狐畅游前端笔试总结 | Zenhertz</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a0125a1d7a8fc7a899363da6b3014ebd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zenhertz</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live With Your Faith</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/17/CYOU-EXAM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zenhertz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zenhertz">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">搜狐畅游前端笔试总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T14:03:18+08:00">
+                2017-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>搜狐畅游前端笔试，很好玩的笔试题，有50分的题目在问我游戏基础知识，<br>包括但不限于，MMORPG、SRPG、增益效果的英文、刀塔传奇某张牌的效果、<br>天龙八部几个门派，传奇几个职业…</p>
+<p>除去这50分，其余的是真真正正的前端笔试题。</p>
+<p>说是前端笔试题，又考的很浅，基本不涉及JavaScript的原型、作用域、闭包（反正现在回忆起来是没有）</p>
+<p>考的是什么呢？</p>
+<font color="blue">CSS样式、jQuery基础、类型判等、jQuery动画…</font>
+
+<p>现在把能想到和当时在笔上记下的比较模棱两可的题目，总结一下，防止以后再坑。</p>
+<h3 id="试题部分"><a href="#试题部分" class="headerlink" title="试题部分"></a>试题部分</h3><h4 id="选择和填空"><a href="#选择和填空" class="headerlink" title="选择和填空"></a>选择和填空</h4><h5 id="1-多选-下列哪些不是行内元素-CD"><a href="#1-多选-下列哪些不是行内元素-CD" class="headerlink" title="1. (多选)下列哪些不是行内元素(CD)"></a>1. (多选)下列哪些不是行内元素(CD)</h5><pre><code>A.span B.label C.dd D.li
+</code></pre><p>第一反应是D.li，但是说到是多选，于是就把C也选上了，说实话，C还真的没怎么了解过，毕竟没遇到过考dd的题目，事后百度了一下</p>
+<pre><code>行内元素：a、b、span、img、input、strong、select、label、em、button、textarea
+块级元素：div、ul、li、dl、dt、dd、p、h1-h6、blockquote
+</code></pre><hr>
+<h5 id="2-以下输出为真的是（AD）"><a href="#2-以下输出为真的是（AD）" class="headerlink" title="2. 以下输出为真的是（AD）"></a>2. 以下输出为真的是（AD）</h5><pre><code>A.1==&quot;1&quot; B.1===true C.0==NaN D.0!=NaN
+</code></pre><p>这个题做错了，我选的AB，后来测试，在控制台输出的分别是 true、false、false、true</p>
+<p>推荐一个解释</p>
+<pre><code>1、对于string,number等基础类型，==和===是有区别的
+1）不同类型间比较，==之比较“转化成同一类型后的值”看“值”是否相等，===如果类型不同，其结果就是不等
+2）同类型比较，直接进行“值”比较，两者结果一样
+2、对于Array,Object等高级类型，==和===是没有区别的进行“指针地址”比较
+
+作者：匿名用户
+链接：https://www.zhihu.com/question/31442029/answer/51951524
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+</code></pre><h5 id="3-有代码如下"><a href="#3-有代码如下" class="headerlink" title="3.有代码如下"></a>3.有代码如下</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">    #a span&#123;</span></div><div class="line"><span class="undefined">        color:red;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined">    .b span&#123;</span></div><div class="line"><span class="undefined">        color:blue;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined">    #c span&#123;</span></div><div class="line"><span class="undefined">        color:cyan;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined">    span&#123;</span></div><div class="line"><span class="undefined">        color:black;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"a"</span> <span class="attr">class</span>=<span class="string">b</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"c"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>什么颜色<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>请问span中的text是什么颜色？</p>
+<p>答案是cyan；</p>
+<p>这里涉及到css中的权重和覆盖问题，</p>
+<pre><code>1. ID属性值，加100
+2. class类属性值、属性选择或者伪类，加10。
+3. h1元素和伪元素，加1。
+4. 结合符和通配选择器 * 对特殊性没有任何贡献，加0,0,0,0。
+5. 内联样式特殊性为1,0,0,0，因此内联声明的特殊性最高。
+6. 标志为 !important 的声明并没有特殊的特殊性值，此时该声明为重要声明，超过所有非重要声明。
+7. 继承的权值非常低，可能只有0.1
+8.CSS 后面的设置会覆盖前面的设置
+</code></pre><p>很明显，#a span 和 #c span权重一样，但是#c写在后面，所以#c生效。</p>
+<h5 id="4-“div”-能取到什么元素？（A）"><a href="#4-“div”-能取到什么元素？（A）" class="headerlink" title="4.$(“div”)能取到什么元素？（A）"></a>4.$(“div”)能取到什么元素？（A）</h5><pre><code>A.所有div元素 B.首个div元素 C.最后一个div元素
+</code></pre><p>这道题简直在逗我。。。</p>
+<h5 id="5-“div-intro-head”-取到什么元素？"><a href="#5-“div-intro-head”-取到什么元素？" class="headerlink" title="5.$(“div#intro .head”) 取到什么元素？"></a>5.$(“div#intro .head”) 取到什么元素？</h5><p>选项忘了，这是jQuery基础中的基础，直接给答案，<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">id="intro" 的 <span class="tag">&lt;<span class="name">div</span>&gt;</span> 元素中的所有 class="head" 的元素</div></pre></td></tr></table></figure></p>
+<hr>
+<p>而且这居然是w3school上原封不动拿过来的<a href="http://www.w3school.com.cn/jquery/jquery_selectors.asp" target="_blank" rel="external">http://www.w3school.com.cn/jquery/jquery_selectors.asp</a><br>我觉得搜狐畅游真是诚意满满（广告费5毛）</p>
+<h5 id="6-写出jQuery返回所有不带intro类名的p元素"><a href="#6-写出jQuery返回所有不带intro类名的p元素" class="headerlink" title="6.写出jQuery返回所有不带intro类名的p元素"></a>6.写出jQuery返回所有不带intro类名的p元素</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"p:not(.intro)"</span>);</div></pre></td></tr></table></figure>
+<h5 id="7-写出jQuery向右移动10像素的动画，速度忽略。"><a href="#7-写出jQuery向右移动10像素的动画，速度忽略。" class="headerlink" title="7.写出jQuery向右移动10像素的动画，速度忽略。"></a>7.写出jQuery向右移动10像素的动画，速度忽略。</h5><p>基础不扎实的我这道题写错了<br>一来把左右参数弄反了，二来移动距离没加引号<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">答案 $(<span class="string">"div"</span>).animate(&#123;<span class="attr">left</span>:<span class="string">"+=10px"</span>&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="问答题两道"><a href="#问答题两道" class="headerlink" title="问答题两道"></a>问答题两道</h4><p>不叫编程题，所以也没有调试环境，我想切出来在本地调试也不行，只好随便写写了，也不知道有没有bug。</p>
+<h5 id="1-写一个数组去重的方法"><a href="#1-写一个数组去重的方法" class="headerlink" title="1.写一个数组去重的方法"></a>1.写一个数组去重的方法</h5><p>我的答案<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">0</span>]&lt;<span class="built_in">arguments</span>[<span class="number">1</span>])</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">0</span>]&gt;<span class="built_in">arguments</span>[<span class="number">1</span>])</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fix</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    arr.sort(compare);</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(arr[i]==arr[i<span class="number">-1</span>])&#123;</div><div class="line">            arr.splice(i,<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>缺陷在于当重复的元素超过2的时候，就不能正确的work了</p>
+<h5 id="2-用样式或者脚本使一个元素居中"><a href="#2-用样式或者脚本使一个元素居中" class="headerlink" title="2.用样式或者脚本使一个元素居中"></a>2.用样式或者脚本使一个元素居中</h5><p>我用的最简单的方法，这个答案是很水了<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">        .div1&#123;</span></div><div class="line"><span class="undefined">            width:100px;</span></div><div class="line"><span class="undefined">            height:100px;</span></div><div class="line"><span class="undefined">            top:0;</span></div><div class="line"><span class="undefined">            left:0;</span></div><div class="line"><span class="undefined">            right:0;</span></div><div class="line"><span class="undefined">            bottom:0;</span></div><div class="line"><span class="undefined">            margin:auto;</span></div><div class="line"><span class="undefined">            position: absolute;</span></div><div class="line"><span class="undefined">            background-color: #1b6d85;</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>就这样，以后有兴趣再来更新。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/16/thinkingInJs/" rel="next" title="JavaScript连续赋值的思考">
+                <i class="fa fa-chevron-left"></i> JavaScript连续赋值的思考
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Zenhertz" />
+          <p class="site-author-name" itemprop="name">Zenhertz</p>
+           
+              <p class="site-description motion-element" itemprop="description">Live With Your Faith</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#试题部分"><span class="nav-number">2.</span> <span class="nav-text">试题部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择和填空"><span class="nav-number">2.1.</span> <span class="nav-text">选择和填空</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-多选-下列哪些不是行内元素-CD"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. (多选)下列哪些不是行内元素(CD)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-以下输出为真的是（AD）"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 以下输出为真的是（AD）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-有代码如下"><span class="nav-number">2.1.3.</span> <span class="nav-text">3.有代码如下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-“div”-能取到什么元素？（A）"><span class="nav-number">2.1.4.</span> <span class="nav-text">4.$(“div”)能取到什么元素？（A）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-“div-intro-head”-取到什么元素？"><span class="nav-number">2.1.5.</span> <span class="nav-text">5.$(“div#intro .head”) 取到什么元素？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-写出jQuery返回所有不带intro类名的p元素"><span class="nav-number">2.1.6.</span> <span class="nav-text">6.写出jQuery返回所有不带intro类名的p元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-写出jQuery向右移动10像素的动画，速度忽略。"><span class="nav-number">2.1.7.</span> <span class="nav-text">7.写出jQuery向右移动10像素的动画，速度忽略。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问答题两道"><span class="nav-number">2.2.</span> <span class="nav-text">问答题两道</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-写一个数组去重的方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.写一个数组去重的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-用样式或者脚本使一个元素居中"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.用样式或者脚本使一个元素居中</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zenhertz</span>
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+</div>
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
